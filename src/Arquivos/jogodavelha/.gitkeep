@@ -1,0 +1,6 @@
+# 1. Exibir menu de opções
+# 2. Perguntar pro jogador se ele quer ser o X OU O
+# 3. o jogo deve mostrar a logica de como se joga , primeiro exibindo o tabuleiro pra jogar , depois o de molde e pedir o nome
+# 4. Verificando se a jogada é válida
+# 5. Verificar o tabuleiro tanto como verticais , horizontais e diagonais
+# 6.  O tabuleiro e o placar das partidas devem estar visíveis o tempo todo

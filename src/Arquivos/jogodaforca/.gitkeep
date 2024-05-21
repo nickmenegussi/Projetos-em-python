@@ -1,0 +1,96 @@
+from random import choice
+from arquivos_uteis import apresentar_programa,palavra_pais, palavra_fruta, exibirforca
+
+# 1.Criar algum menu com as opcoes seguintes:[jogar contra o computadorou humano e dificuldades e para finalizar programa] # mudar
+def menu():
+    apresentar_programa()
+    while True:
+        opcao = input("\033[1;33m[ 1 ] Frutas\n[ 2 ] País\n[ 3 ] Tenis\n[ 4 ] Time de futebol\033[m\nSua opcao: ").strip()
+        if opcao in '1':
+            print("\033[1;32mBem vindo ao tema frutas!!\033[m")
+            frutas()
+        elif opcao in '2':
+            print("\033[1;33mBem vindo ao tema País!\033[m")
+            pais()
+        elif opcao in '3':
+            print("Bem vindo ao tema Tenis!")
+        elif opcao in '4':
+            print("Bem vindo ao tema time de futebol!")
+        elif opcao in 'Sairsair':
+            exit()
+        else:
+            print(f"\033[1;31mErro , nao temos {opcao.upper()} em nosso menu!\033[m")
+
+
+# status do jogo frutas
+def frutas():
+    pass
+def pais():
+    pass
+
+
+# escolher alguma palavra por sorteio
+palavra_escolhida = choice(palavra_fruta()).capitalize().strip()
+
+# criar uma variavel de letras_jogadas
+letras_jogada = []
+
+# criar uma variavel de letras_acertadas
+letras_acertadas = []
+
+# criar uma variavel de  tentativas 
+tentativas = 0
+
+# crar um loop para o jogo principal até o 6 erro e depois acabar.
+while True:
+    # verifica se o jogador já acertou todas as letras
+    for letra in palavra_escolhida:
+        if letra in letras_acertadas:
+            print(letra, end="")
+        else:
+            print("_", end="")
+    print()
+    # criar uma verificacao caso o usuario acerto alguma palavra que esteja em palavras_sorteada e caso ele erre tbm
+    if palavra_escolhida == letras_acertadas:
+        print("Parabéns, voce acertou a palavra secreta!")
+        break
+    
+    jogada = input("Adivinhe uma letra: ").strip()
+    # criar uma verificacao para se caso ele responda a mesma letra.
+    if jogada in letras_jogada:
+        print("Voce ja jogou essa , tente outra.")
+        continue
+    letras_jogada.append(jogada)
+
+    if jogada in palavra_escolhida:
+        letras_acertadas.append(jogada)
+    else:
+        tentativas += 1
+        print(f"A letra '{jogada}' não está na palavra secreta.")
+        if tentativas == 6:
+            break
+
+"""palavra_escolhida = choice(palavra_fruta()).strip()
+palavra_separada = ["_"] * len(palavra_escolhida)
+acerto = False
+tentativa = 0
+print(palavra_escolhida)
+while not acerto: # Melhorar
+    print(exibirforca(tentativa))
+    print(f"Está é a palavra: {palavra_separada}")
+    palavra_jogador = input("Digite uma palavra ou uma letra: ").capitalize().strip()
+
+
+    # se o usuario acertar todas as letra contida na palavra_escolhida
+    if palavra_jogador in palavra_escolhida:
+        print(f"\033[1;32mParabens Voce acertou {palavra_escolhida} que era a palavra secreta!\033[m.")
+        break
+
+
+    else:
+        print(f"\033[1;31mOpss ,Voce errou a palavra {palavra_escolhida}\033[m.")
+        tentativa += 1
+        if tentativa >= 6:
+            print(f"\033[1;32mFORCA\033[m!\033[1;31mVoce perdeu! a palavra era {palavra_escolhida}\033[m.")
+            break
+"""
